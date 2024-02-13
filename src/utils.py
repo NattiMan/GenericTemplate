@@ -1,6 +1,5 @@
 import os 
 import sys
-import sklearn.mo
 import pickle 
 from src.exception import CustomException
 from src.logger import logging as log
@@ -31,10 +30,10 @@ def load_object(object_path):
         log.info("Pickle object could not be loaded.")
         raise CustomException(e, sys)
     
-def evaluate_model(test_data_path, model):
-    ''' This function takes train and test data along with the models and their params
-    and returns a dictionary of the model name and their r2_square errors
-    '''
+# def evaluate_model(test_data_path, model):
+#     ''' This function takes train and test data along with the models and their params
+#     and returns a dictionary of the model name and their r2_square errors
+#     '''
     
 
 
