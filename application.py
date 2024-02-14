@@ -8,15 +8,13 @@ from src.components.data_transformation import DataTransformation
 
 from src.components.model_trainer import ModelTrainer
 
-num_cols = ['Population']
-cat_cols = []
+from src.pipelines.train_pipeline import TrainPipeline
+
+t_path = 'data/californiaHousePrice.csv.csv'
 targ_col = 'MedHouseVal'
-transformation_instance = DataTransformation('data/californiaHousePrice.csv.csv',numerical_columns=num_cols, categorical_columns=cat_cols, is_testing=False, training_data_path='Artifacts/trainData.csv')
-train_array , test_array, _ = transformation_instance.initiate_data_transformation(target_column=targ_col)
+num_cols = ['MedInc','HouseAge','AveRooms','AveBedrms','Population','AveOccup','Latitude','Longitude']
+cat_cols = []
 
-model_training_instance = ModelTrainer()
-print(model_training_instance.initiate_model_trainer(train_array, test_array))
+train_app = TrainPipeline(training_data_path=t_path, target_column=targ_col, numerical_columns=num_cols, categorical_columns=cat_cols, is_testing=False)
+train_app.train()
 
-
-print(train_array.shape)
-print(test_array.shape)
