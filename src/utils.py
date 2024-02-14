@@ -22,14 +22,12 @@ def save_object(file_path, object):
         log.info("The object could not be saved successfully.")
         raise CustomException(e, sys)
 
-def load_object(object_path):
+def load_object(file_path):
     try:
-        with open (object_path, 'rb') as obj:
-            pickle.load(obj)
-        log.info("SUCCESSFULLY loaded the pickle object.")
-        
+        with open(file_path, "rb") as file_obj:
+            return pickle.load(file_obj)
+
     except Exception as e:
-        log.info("Pickle object could not be loaded.")
         raise CustomException(e, sys)
     
 def evaluate_models(X_train, y_train, X_test, y_test, models, params):
