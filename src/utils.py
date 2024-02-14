@@ -59,3 +59,11 @@ def evaluate_models(X_train, y_train, X_test, y_test, models, params):
 
 
 
+class PipeInputReceiver:
+
+    def __init__(self, target_column,testing_data_path, numerical_columns = None, categorical_columns = None, is_testing = False):
+        self.testing_data_path = testing_data_path
+        self.target_column = target_column
+        self.numerical_columns = numerical_columns
+        self.categorical_columns = categorical_columns 
+        self.is_testing = is_testing

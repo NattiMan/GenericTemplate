@@ -15,7 +15,7 @@ from src.exception import CustomException
 
 @dataclass
 class DataTransformationConfig:
-    transformationProcessorPath = os.path.join('Artifacts', 'transformationProcessor.pkl')
+    transformationProcessorPath:str = os.path.join('Artifacts', 'transformationProcessor.pkl')
 
 
 class DataTransformation:
@@ -115,7 +115,6 @@ class DataTransformation:
 
         except Exception as e:
             raise CustomException(e, sys)
-
 
 
 
